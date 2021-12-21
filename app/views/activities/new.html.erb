@@ -1,0 +1,8 @@
+<div class="container my-4">
+  <%= link_to activities_path do %>
+    <i class="ph-arrow-left-bold"></i>
+  <% end %>
+  <h1>Add activity</h1>
+
+  <%= render 'form', activity: @activity%>
+</div>
