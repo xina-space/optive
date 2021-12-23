@@ -20,10 +20,28 @@ class ActivitiesController < ApplicationController
 
   def edit; end
 
+  def destroy
+    @activity.destroy
+    redirect_to activities_path
+  end
+
+  def update
+    @activity.update(activity_params)
+    if @activity.update(activity_params)
+      redirect_to activities_path
+    else
+      render :edit
+    end
+  end
+
   private
 
   def activity_params
     params.require(:activity).permit(:title)
+  end
+
+  def set_activity
+    @activity = Activity.find(params[:id])
   end
 
 end
