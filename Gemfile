@@ -64,3 +64,7 @@ gem 'jquery-rails'
 
 # simple form
 gem 'simple_form'
+
+# checkbox into toggle
+
+gem 'bootstrap-toggle-rails'

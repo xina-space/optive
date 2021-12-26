@@ -39,6 +39,11 @@ body {
   font-family: 'Space Mono', monospace;
 }
 
+#icon-button {
+  font-size: 3rem;
+  color: $black;
+}
+
 a:link { text-decoration: none; }
 
 
@@ -63,4 +68,32 @@ a:active { text-decoration: none; }
 
 .activity-listed {
   font-size: 2rem;
+}
+
+// mobile
+@media (max-width: 480px) {
+  h3 {
+    font-size: 5rem;
+  }
+
+  .activity-listed {
+  font-size: 3rem;
+  // border-bottom: 2px solid $black;
+  border-top: 2px solid $black;
+  }
+}
+
+// tablet
+@media (max-width: 768px) {
+
+}
+
+// laptop
+@media (max-width: 1024px) {
+
+}
+
+// large desktop
+@media (max-width: 1200px) {
+
 }

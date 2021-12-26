@@ -1,14 +1,19 @@
 
 <div class="index-container mt-5">
-  <h3 class="mb-5">Your activities</h3>
+  <h3 class="mb-5">Activities</h3>
+  <div class="add-top d-flex justify-content-end">
+    <%= link_to new_activity_path do %>
+      <i class="ph-plus-bold" id="icon-button"></i>
+    <% end %>
+  </div>
   <ul>
       <% @activities.each do |activity| %>
         <li>
           <p class="activity-listed py-3"><%= activity.title %></p>
           <%= link_to "Delete", activity, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-outline-primary' %>
           <%= link_to "Edit", edit_activity_path(activity), class:'btn btn-outline-primary' %>
+          <%= link_to "Show", activity_path(activity), class:'btn btn-outline-primary' %>
         </li>
       <% end %>
   </ul>
-  <%= link_to 'add new', new_activity_path, class:'btn btn-outline-primary' %>
 </div>

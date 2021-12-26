@@ -18,6 +18,8 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def show;  end
+
   def edit; end
 
   def destroy
@@ -37,7 +39,7 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:title)
+    params.require(:activity).permit(:title, completed: false)
   end
 
   def set_activity
