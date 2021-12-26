@@ -36,6 +36,10 @@ class ActivitiesController < ApplicationController
     end
   end
 
+  def sample
+    @activity = Activity.all.sample
+  end
+
   private
 
   def activity_params
