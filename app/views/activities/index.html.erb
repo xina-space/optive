@@ -9,10 +9,21 @@
   <ul>
       <% @activities.each do |activity| %>
         <li>
-          <p class="activity-listed py-3"><%= activity.title %></p>
-          <%= link_to "Delete", activity, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-outline-primary' %>
-          <%= link_to "Edit", edit_activity_path(activity), class:'btn btn-outline-primary' %>
-          <%= link_to "Show", activity_path(activity), class:'btn btn-outline-primary' %>
+          <div class="list-bundle d-flex justify-content-between">
+            <p class="activity-title py-3"><%= activity.title %></p>
+            <div class="actions d-flex align-items-center">
+              <div class="edit-button">
+                <%= link_to edit_activity_path(activity) do %>
+                  <i class="ph-pencil-line-fill p-3" id="icon-button"></i>
+                <% end %>
+              </div>
+              <div class="delete-button">
+                <%= link_to activity, method: :delete, data: {confirm: "Are you sure?"} do %>
+                  <i class="ph-trash-fill p-3" id="icon-button"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </li>
       <% end %>
   </ul>

@@ -64,9 +64,11 @@ a:active { text-decoration: none; }
     border: 2px solid $black;
     color: $white;
   }
+  width: 100%;
+  font-size: 2rem;
 }
 
-.activity-listed {
+.activity-title {
   font-size: 2rem;
 }
 
@@ -76,9 +78,12 @@ a:active { text-decoration: none; }
     font-size: 5rem;
   }
 
-  .activity-listed {
-  font-size: 3rem;
+  .activity-title {
+  font-size: 2rem;
   // border-bottom: 2px solid $black;
+  }
+
+  .list-bundle {
   border-top: 2px solid $black;
   }
 }
