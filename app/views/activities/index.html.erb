@@ -27,5 +27,9 @@
         </li>
       <% end %>
   </ul>
-  <%= link_to "Randomize", activity_path(@activities.sample), class:'btn btn-outline-primary' %>
+  <% if @activities.count < 1 %>
+    <p class="">Add some activities</p>
+  <% else %>
+    <%= link_to "Randomize", activity_path(@activities.sample), class:'btn btn-outline-primary' %>
+  <%  end %>
 </div>
