@@ -20,6 +20,10 @@ test:
   <<: *default
   database: optive_test
 
+
+#host: localhost
+#port: 5432
+
 production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
