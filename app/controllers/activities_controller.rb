@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
 
   def index
-    @activities = Activity.all
+    @activities = current_user.activities
   end
 
   def new
@@ -10,11 +10,21 @@ class ActivitiesController < ApplicationController
   end
 
   def create
-    @activity = Activity.new(activity_params)
-    if @activity.save
-      redirect_to activities_path
+    @activity = current_user.activities.build(activity_params)
+    if user_signed_in?
+      @activity.user = current_user
+      if @activity.save
+        redirect_to activities_path
+      else
+        render :new
+      end
     else
-      render :new
+      # @activity = Activity.new(activity_params)
+      if @activity.save
+        redirect_to activities_path
+      else
+        render :new
+      end
     end
   end
 
