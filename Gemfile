@@ -68,3 +68,5 @@ gem 'simple_form'
 # checkbox into toggle
 
 gem 'bootstrap-toggle-rails'
+
+gem 'devise'
