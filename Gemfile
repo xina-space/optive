@@ -70,3 +70,5 @@ gem 'simple_form'
 gem 'bootstrap-toggle-rails'
 
 gem 'devise'
+
+gem 'pundit'
