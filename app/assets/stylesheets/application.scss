@@ -19,6 +19,10 @@
 $headings: 'Space Mono', monospace;
 $black: #1D1B1B;
 $white: #F6F6F6;
+$green: #3FA796;
+$gray: #90AACB;
+$seamoss: #1DB9C3;
+
 
 h1, h2 {
   font-weight: 700;
@@ -37,6 +41,7 @@ ul {
 
 body {
   font-family: 'Space Mono', monospace;
+  background-color: $white;
 }
 
 #icon-button {
@@ -44,7 +49,24 @@ body {
   color: $black;
 }
 
-a:link { text-decoration: none; }
+::selection {
+  color: $white;
+  background: $seamoss;
+}
+
+a {
+  color: $seamoss;
+}
+
+.nav-link {
+  color: $seamoss;
+}
+
+
+
+a:link {
+  text-decoration: none;
+}
 
 
 a:visited { text-decoration: none; }
@@ -68,12 +90,77 @@ a:active { text-decoration: none; }
   font-size: 2rem;
 }
 
+.navbar-nav {
+  float: right;
+  margin: 0;
+}
+
 .activity-title {
   font-size: 2rem;
 }
 
+.alert {
+  border-radius: 0;
+}
+
+.alert-info {
+  background-color: $seamoss;
+  color: $white;
+}
+
+.close {
+  float: right;
+  font-family: 'Space Mono', monospace;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: $white;
+  text-shadow: none;
+  filter: alpha(opacity=20);
+  opacity: 1;
+}
+
 #logo {
   width: 100px;
+  box-shadow: none;
+}
+
+.form-control {
+  border-radius: 0px;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid $black;
+  background-color: $white;
+
+}
+
+.form-control:focus {
+  border-bottom: 1px solid $seamoss;
+  background-color: $white;
+  box-shadow: none;
+}
+
+.form-control:hover {
+  border-bottom: 3px solid $seamoss;
+}
+
+.form-check-input {
+  background-color: $white;
+  border-radius: 0px!important;
+  border: 1px solid $black;
+}
+
+.form-check-input:focus {
+  border-color: $seamoss;
+  background-color: $white;
+  box-shadow: none;
+  outline: 0px auto;
+  outline-offset: 0px;
+}
+
+.form-check-input:checked {
+  border-color: $seamoss;
+  background-color: $seamoss;
 }
 
 // mobile
