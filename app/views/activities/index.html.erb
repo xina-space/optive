@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <ul>
-  <% if policy(@activities).index? %>
+  <%# if policy(@activities).index? %>
       <% @activities.each do |activity| %>
         <li>
           <div class="list-bundle d-flex justify-content-between">
@@ -27,11 +27,12 @@
           </div>
         </li>
       <% end %>
-    <% end %>
+    <%# end %>
   </ul>
   <% if @activities.count < 1 %>
     <p class="">Add some activities</p>
   <% else %>
     <%= link_to "Randomize", activity_path(@activities.sample), class:'btn btn-outline-primary' %>
   <%  end %>
+  <%# raise %>
 </div>

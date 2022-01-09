@@ -71,4 +71,6 @@ gem 'bootstrap-toggle-rails'
 
 gem 'devise'
 
+gem 'devise-guests'
+
 gem 'pundit'

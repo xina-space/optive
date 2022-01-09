@@ -1,16 +1,19 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: %i[index show edit destroy update create new]
+  # before_action :set_user, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: %i[create index new save show]
+  after_action :verify_authorized, except: [:index, :show]
+  # skip_before_action :authenticate_user!, only: %i[index show edit destroy update create new]
 
   def index
-    if user_signed_in?
-      # @activities = current_user.activities
-      @activities = policy_scope(Activity)
-    else
-      # @activities = Activity.all
-      @activities = policy_scope(Activity)
-    end
-    # authorize @activities
+    # @user = User.last
+    # authorize @user
+    # @user = User.last(params[:id])
+    # authorize @user
+    @activities = policy_scope(Activity)
+    # @activities = Activity.all
+    # @activity.user = current_or_guest_user
+    authorize Activity
   end
 
   def new
@@ -21,20 +24,11 @@ class ActivitiesController < ApplicationController
   def create
     @activity = Activity.new(activity_params)
     authorize @activity
-    if user_signed_in?
-      @activity.user = current_user
-      if @activity.save
-        redirect_to activities_path
-      else
-        render :new
-      end
+    @activity.user = current_or_guest_user
+    if @activity.save
+      redirect_to activities_path
     else
-      @activity = Activity.new(activity_params)
-      if @activity.save
-        redirect_to activities_path
-      else
-        render :new
-      end
+      render :new
     end
   end
 
@@ -76,4 +70,9 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     authorize @activity
   end
+
+  # def set_user
+  #   @user = User.find(params[:id])
+  #   authorize @user
+  # end
 end
