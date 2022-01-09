@@ -1,19 +1,25 @@
-<nav class="navbar container justify-content-center">
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag 'optive-logo@2x.png', id: 'logo' %>
-  <% end %>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navbar-nav">
-      <% if user_signed_in? %>
-        <div class="nav-item">
-         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"  %>
-        </div>
-      <% else %>
-        <div class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </div>
-      <% end %>
-    </div>
+<div class="navbar container mt-3">
+  <%# <div class="container-fluid"> %>
+  <div class="navbar-brand p-0 flex-grow-1">
+    <%= link_to root_path do %>
+      <%= image_tag 'optive-logo@2x.png', id: 'logo' %>
+    <% end %>
   </div>
-</nav>
+
+  <div class="navbar-item flex-shrink-1">
+    <% if user_signed_in? %>
+      <div class="nav-item-in">
+      <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+        <i class="ph-sign-out-fill" id="icon-button"></i>
+      <% end %>
+      </div>
+    <% else %>
+      <div class="nav-item-out">
+        <%= link_to new_user_session_path, class: "nav-link" do %>
+          <i class="ph-sign-in-fill" id="icon-button"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%# </div> %>
+</div>
