@@ -13,7 +13,7 @@ class ActivitiesController < ApplicationController
     @activities = policy_scope(Activity)
     # @activities = Activity.all
     # @activity.user = current_or_guest_user
-    authorize Activity
+    # authorize Activity
   end
 
   def new
